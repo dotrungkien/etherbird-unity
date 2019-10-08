@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class ColumnPool2 : MonoBehaviour {
+public class ColumnPool : MonoBehaviour {
     public GameObject columnPrefab; //The column game object.
     public int columnPoolSize = 5; //How many columns to keep on standby.
     public float spawnRate = 3f; //How quickly columns spawn.
@@ -33,7 +33,7 @@ public class ColumnPool2 : MonoBehaviour {
     void Update () {
         timeSinceLastSpawned += Time.deltaTime;
 
-        if (GameControl2.instance.gameOver == false && timeSinceLastSpawned >= spawnRate) {
+        if (GameControl.instance.gameOver == false && timeSinceLastSpawned >= spawnRate) {
             timeSinceLastSpawned = 0f;
 
             //Set a random y position for the column

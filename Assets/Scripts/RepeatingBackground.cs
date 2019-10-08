@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class RepeatingBackground2 : MonoBehaviour {
+public class RepeatingBackground : MonoBehaviour {
 
     private BoxCollider2D groundCollider; //This stores a reference to the collider attached to the Ground.
     private float groundHorizontalLength; //A float to store the x-axis length of the collider2D attached to the Ground GameObject.

@@ -156,7 +156,7 @@ public class TopScoreService : MonoBehaviour {
                     //and set it to the text box
                     topScoreText.text = "Your top: " + topScoreUser.ToString ();
                     //set the value on the global worl
-                    GameControl2.instance.TopScoreRecorded = topScoreUser;
+                    GameControl.instance.TopScoreRecorded = topScoreUser;
                     wait = 3;
                 } else {
                     Debug.Log (userTopScoreRequest.Exception.ToString ());
@@ -173,14 +173,14 @@ public class TopScoreService : MonoBehaviour {
             yield return new WaitForSeconds (wait);
 
             //Game control sets a signal
-            if (GameControl2.instance.SubmitTopScore && !submitting) {
+            if (GameControl.instance.SubmitTopScore && !submitting) {
                 if (_userAddress != null) {
                     submitting = true;
                     Debug.Log ("Submitting tx");
 
                     //Create the transaction input with encoded values for the function
                     var transactionInput = _scoreContractService.CreateSetTopScoreTransactionInput (_userAddress, _addressOwner, _privateKey,
-                        GameControl2.instance.TopScore,
+                        GameControl.instance.TopScore,
                         new HexBigInteger (4712388));
 
                     if (ExternalProvider) {
@@ -190,7 +190,7 @@ public class TopScoreService : MonoBehaviour {
                         //Create Unity Request with the private key, url and user address 
                         //(the address could be recovered from private key as in normal Nethereum, could put this an overload)
                         // premature optimisation
-                        var transactionSignedRequest = new TransactionSignedUnityRequest (_url, GameControl2.instance.Key);
+                        var transactionSignedRequest = new TransactionSignedUnityRequest (_url, GameControl.instance.Key);
 
                         //send and wait
                         yield return transactionSignedRequest.SignAndSendTransaction (transactionInput);
@@ -205,7 +205,7 @@ public class TopScoreService : MonoBehaviour {
                     }
 
                 }
-                GameControl2.instance.SubmitTopScore = false;
+                GameControl.instance.SubmitTopScore = false;
                 submitting = false;
             }
         }

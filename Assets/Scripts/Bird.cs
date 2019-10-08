@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class Uni : MonoBehaviour {
+public class Bird : MonoBehaviour {
     public float upForce; //Upward force of the "flap".
     private bool isDead = false; //Has the player collided with a wall?
 
@@ -22,7 +22,7 @@ public class Uni : MonoBehaviour {
             //Look for input to trigger a "flap".
             if (Input.GetMouseButtonDown (0)) {
                 //...tell the animator about it and then...
-                anim.SetTrigger ("FlapUni");
+                anim.SetTrigger ("Flap");
                 //...zero out the unis current y velocity before...
                 rb2d.velocity = Vector2.zero;
                 //	new Vector2(rb2d.velocity.x, 0);
@@ -38,8 +38,8 @@ public class Uni : MonoBehaviour {
         // If the uni collides with something set it to dead...
         isDead = true;
         //...tell the Animator about it...
-        anim.SetTrigger ("DeadUni");
+        anim.SetTrigger ("Die");
         //...and tell the game control about it.
-        GameControl2.instance.UniDied ();
+        GameControl.instance.UniDied ();
     }
 }

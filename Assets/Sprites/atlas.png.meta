@@ -51,8 +51,8 @@ TextureImporter:
     21300092: atlas_46
     21300094: atlas_47
     21300096: atlas_48
-    21300098: column0-up
-    21300100: column0-down
+    21300098: column0-down
+    21300100: column0-up
     21300102: atlas_51
     21300104: atlas_52
     21300106: atlas_53
@@ -1018,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: column0-up
+      name: column0-down
       rect:
         serializedVersion: 2
         x: 112
@@ -1038,7 +1038,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: column0-down
+      name: column0-up
       rect:
         serializedVersion: 2
         x: 168
